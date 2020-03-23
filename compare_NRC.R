@@ -261,3 +261,21 @@ predictions_angry <- slda.predict(documents = documents_test,
 
 # Save file
 save(predictions_angry, file = "predictions_angry.RDa")
+
+# Load SLDA results 
+load("predictions_love.RDa")
+load("predictions_haha.RDa")
+load("predictions_wow.RDa")
+load("predictions_sad.RDa")
+load("predictions_angry.RDa")
+
+# Create matrix to compare the predictions to the true values 
+predictions <- tibble(status_num = as.integer(slda_annotations[test_indices, ]$status_num),
+                      message = slda_annotations[test_indices, ]$message, 
+                      predictions_love = as.numeric(predictions_love), 
+                      predictions_haha = as.numeric(predictions_haha), 
+                      predictions_wow = as.numeric(predictions_wow), 
+                      predictions_sad = as.numeric(predictions_sad), 
+                      predictions_angry = as.numeric(predictions_angry))
+slda_annotations[test_indices, ]
+
