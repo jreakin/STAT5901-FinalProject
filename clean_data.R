@@ -3,7 +3,6 @@ library(rjson)
 library(tidyverse)
 library(dplyr)
 library(tidytext)
-library(qdapDictionaries)
 
 # Set working directory
 setwd("~/Documents/School/STAT 5901/facebook/datasets2")
