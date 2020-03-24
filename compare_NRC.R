@@ -272,10 +272,23 @@ load("predictions_angry.RDa")
 # Create matrix to compare the predictions to the true values 
 predictions <- tibble(status_num = as.integer(slda_annotations[test_indices, ]$status_num),
                       message = slda_annotations[test_indices, ]$message, 
-                      predictions_love = as.numeric(predictions_love), 
-                      predictions_haha = as.numeric(predictions_haha), 
-                      predictions_wow = as.numeric(predictions_wow), 
-                      predictions_sad = as.numeric(predictions_sad), 
-                      predictions_angry = as.numeric(predictions_angry))
-slda_annotations[test_indices, ]
+                      love = as.numeric(predictions_love), 
+                      haha = as.numeric(predictions_haha), 
+                      wow = as.numeric(predictions_wow), 
+                      sad = as.numeric(predictions_sad), 
+                      angry = as.numeric(predictions_angry))
+differences <- predictions[, 3:7] - slda_annotations[test_indices, 3:7]
 
+# "Melt" data frame into a format that is easily plotted using ggplot 
+differences <- melt(differences)
+
+# Create grouped boxplot 
+ggplot(data = differences, aes(x = variable, y = value, fill = variable)) +
+  geom_boxplot(outlier.alpha = 0.05) +  
+  ggtitle("Difference between predicted and true average sentiment", 
+          subtitle = "Grouped by emotion / reaction") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "none", 
+        plot.title = element_text(size = 12)) + 
+  labs(y = "Difference", x = "Emotion")
+  
