@@ -5,6 +5,7 @@ library(data.table)
 library(mltools)
 library(reshape2)
 library(lda)
+library(RColorBrewer)
 
 # Set working directory
 setwd("~/Documents/School/STAT 5901/facebook/datasets2")
@@ -86,10 +87,24 @@ prop_correct <- data.frame(mean_prop_matched, prop_match_love,
 prop_correct <- melt(prop_correct, id = "x")
 
 # Create plot of correct matches, where colour represents emotion
-ggplot(data = prop_correct, aes(y = value, x = x, color = variable)) +
-  geom_line() + 
+# Make background transparent 
+p <- ggplot(data = prop_correct, aes(y = value, x = x, color = variable)) +
+  geom_line(size = 1.5, alpha = 0.8) + 
   labs(x = "Threshold", y = "Proportion matched with NRC lexicon") +
-  ggtitle("Comparison of threshold lexicon to NRC lexicon")
+  ggtitle("Comparison of threshold lexicon to NRC lexicon") +
+  scale_color_manual(name = "Emotion", 
+                     labels = c("All", "Positive", "Joy", "Surprise", "Sadness", "Anger"),
+                     values = brewer.pal(6, "Dark2")) +
+  theme(panel.background = element_rect(fill = "transparent"),
+        plot.background = element_rect(fill = "transparent", color = NA),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        legend.background = element_rect(fill = "transparent", color = "transparent"), 
+        legend.box.background = element_rect(fill = "transparent", color = "transparent"),
+        legend.key = element_rect(fill = "transparent", color = "transparent"))
+
+# Save plot
+ggsave(p, file = "NRC_compare.png", bg = "transparent")
 
 # Calculate average sentiment per post, using `lexicon_norm`
 # Note: only posts which had words remaining after removing stop words, 
