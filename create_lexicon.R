@@ -66,11 +66,11 @@ for (i in 1:length(unique_words)) {
   
   # Take dot product of `temp` and `status_reaction`, for each reaction
   lexicon$word[i] <- current_word
-  lexicon$love[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction2$p_love)
-  lexicon$haha[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction2$p_haha)
-  lexicon$wow[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction2$p_wow)
-  lexicon$sad[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction2$p_sad)
-  lexicon$angry[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction2$p_angry)
+  lexicon$love[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction$p_love)
+  lexicon$haha[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction$p_haha)
+  lexicon$wow[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction$p_wow)
+  lexicon$sad[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction$p_sad)
+  lexicon$angry[i] <- t(as.numeric(temp$tf_idf)) %*% as.numeric(status_reaction$p_angry)
 }
 
 # Save file
