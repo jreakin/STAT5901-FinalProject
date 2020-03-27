@@ -10,3 +10,4 @@ Run the files in the following order, ensuring the working directory has been se
 - create_lexicon.R
 - prepare_SLDA.R
 - compare_NRC.R
+- compare_AFINN.R
