@@ -298,12 +298,19 @@ differences <- predictions[, 3:7] - slda_annotations[test_indices, 3:7]
 differences <- melt(differences)
 
 # Create grouped boxplot 
-ggplot(data = differences, aes(x = variable, y = value, fill = variable)) +
+p <- ggplot(data = differences, aes(x = variable, y = value, fill = variable)) +
   geom_boxplot(outlier.alpha = 0.05) +  
   ggtitle("Difference between predicted and true average sentiment", 
           subtitle = "Grouped by emotion / reaction") + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         legend.position = "none", 
-        plot.title = element_text(size = 12)) + 
-  labs(y = "Difference", x = "Emotion")
-  
+        plot.title = element_text(size = 16),
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 16),
+        plot.subtitle = element_text(size = 14)) + 
+  labs(y = "Difference", x = "Emotion", size = 16) +
+  scale_x_discrete(labels = c("positive", "joy", "surprise", 
+                            "sadness", "anger"))
+
+# Save plot to PNG
+ggsave(filename = "slda_ggplot.png")  
