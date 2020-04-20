@@ -1,7 +1,7 @@
 #######################################################################################################
 # NOTE: Before running this script, you must unzip the .rar file found here: 
 # https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XJN5L5
-# into a folder called dataset.
+# into the same folder as your working directory. 
 #######################################################################################################
 
 # Load libraries
@@ -9,9 +9,6 @@ library(rjson)
 library(tidyverse)
 library(dplyr)
 library(tidytext)
-
-# Set working directory
-setwd("~/dataset")
 
 # Get list of filenames 
 filenames <- list.files()
