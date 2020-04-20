@@ -4,11 +4,14 @@ In this project, a sentiment lexicon is created using Facebook reactions data.
 
 # Running files
 
-Before starting, you must download the dataset from here: 
-https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XJN5L5
-This file is too large to upload to GitHub.
+Before starting, you must download
 
-Run the files in the following order, ensuring the working directory has been set appropriately (the files in the "dependencies" folder should be in the working directory): 
+- The dataset from here: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XJN5L5
+- The dependencies and outputs from here: https://drive.google.com/drive/folders/1L1NvcaC7N-tuDBnM6si4OwvaGhd0HKsZ?usp=sharing
+
+These files are too large to upload to GitHub.
+
+Run the files in the following order, ensuring the working directory has been set appropriately: 
 
 - clean_data.R
 - create_lexicon.R
