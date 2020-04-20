@@ -7,9 +7,6 @@ library(reshape2)
 library(lda)
 library(RColorBrewer)
 
-# Set working directory
-setwd("~/Documents/School/STAT 5901/facebook/datasets2")
-
 # Load files 
 load("lexicon_norm.RDa")
 load("fb_clean.RDa")
