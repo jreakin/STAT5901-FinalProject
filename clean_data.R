@@ -1,5 +1,7 @@
 #######################################################################################################
-# NOTE: Before running this script, you must unzip the "dataset.rar" file into a folder called dataset.
+# NOTE: Before running this script, you must unzip the .rar file found here: 
+# https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XJN5L5
+# into a folder called dataset.
 #######################################################################################################
 
 # Load libraries
