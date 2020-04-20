@@ -1,3 +1,7 @@
+#######################################################################################################
+# NOTE: Before running this script, you must unzip the "dataset.rar" file into a folder called dataset.
+#######################################################################################################
+
 # Load libraries
 library(rjson)
 library(tidyverse)
@@ -5,7 +9,7 @@ library(dplyr)
 library(tidytext)
 
 # Set working directory
-setwd("~/dependencies")
+setwd("~/dataset")
 
 # Get list of filenames 
 filenames <- list.files()
