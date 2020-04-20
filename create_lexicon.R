@@ -4,9 +4,6 @@ library(tidytext)
 library(qdapDictionaries)
 library(dplyr)
 
-# Set working directory 
-setwd("~/Documents/School/STAT 5901/facebook/datasets2")
-
 # Load files
 load("fb.RDa")
 
