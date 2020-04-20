@@ -5,7 +5,7 @@ library(dplyr)
 library(tidytext)
 
 # Set working directory
-setwd("~/Documents/School/STAT 5901/facebook/datasets2")
+setwd("~/dependencies")
 
 # Get list of filenames 
 filenames <- list.files()
