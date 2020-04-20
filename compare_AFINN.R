@@ -23,20 +23,15 @@ afinn_sentiments <- afinn_sentiments %>%
          afinn_diff = value - pseudo_afinn)
 
 # Create boxplot of the difference between AFINN and pseudo-AFINN, word-level 
-p <- ggplot(data = afinn_sentiments, aes(y = afinn_diff)) + 
-  geom_boxplot(fill = "#8be3ff", color = "#1f1c51") +
-  labs(y = "Difference between AFINN value and pseudo-AFINN value") + 
-  ggtitle("Comparison of AFINN lexicon and new lexicon") + 
-  theme(panel.background = element_rect(fill = "transparent"),
-        plot.background = element_rect(fill = "transparent", color = NA),
-        panel.grid.major = element_blank(), 
-        panel.grid.minor = element_blank(),
-        axis.text.x = element_blank(),
-        axis.title.x = element_blank(),
-        axis.ticks.x = element_blank())
+p <- ggplot(data = afinn_sentiments, aes(y = afinn_diff, x = as.factor(rep(1, nrow(afinn_sentiments))))) + 
+  geom_boxplot(fill = "#8be3ff", color = "#1f1c51", width = 0.5, outlier.size = 2) +
+  theme(axis.text.x = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.text.y = element_text(size = 26))
 
 # Save file 
-ggsave(p, file = "comapre_AFINN_boxplot.png")
+ggsave(p, file = "compare_AFINN_boxplot.png", width = 4, height = 3.8)
 
 # Compare at post level: compute average AFINN vs. average pseudo-afinn for the posts
 post_sentiments_afinn <- fb_clean %>%
